@@ -54,14 +54,14 @@
       grep = "rg";
     };
     
-    initExtra = ''
-      eval "$(zoxide init zsh)"
-    '';
-  };
-
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "rust"
+      ];
+      theme = "wezm+";
+    };
   };
 
   # Alacritty terminal configuration
@@ -72,10 +72,10 @@
         opacity = 0.95;
         blur = true;
       };
-    #   font = {
-    #     normal.family = "FiraCode Nerd Font";
-    #     size = 11;
-    #   };
+      font = {
+        normal.family = "Iosevka Nerd Font";
+        size = 12;
+      };
       colors = {
         primary = {
           background = "#1e1e2e";
