@@ -9,13 +9,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.configurationLimit = 10;
 
-    # LUKS encryption setup
-    boot.initrd.luks.devices."luks-root" = {
-        device = "/dev/disk/by-uuid/LUKS-UUID";
-        preLVM = true;
-    };
-
-    networking.hostname = "mojave";
+    networking.hostName = "mojave";
     networking.networkmanager.enable = true;
 
     time.timeZone = "Australia/Sydney";
@@ -32,7 +26,7 @@
         LC_TIME = "en_GB.UTF-8";
     };
 
-    console.keymap = "uk";
+    console.keyMap = "uk";
     services.xserver.xkb = {
         layout = "gb";
         variant = "";
@@ -44,11 +38,17 @@
         wayland.enable = true;
     };
 
-    programs.hyprland = {
+    programs.sway = {
         enable = true;
-        xwayland.enable = true;
+        wrapperFeatures.gtk = true;
+        extraPackages = with pkgs; [
+            swaylock
+            swayidle
+            swaybg
+            xwayland
+        ];
     };
-
+    
     security.rtkit.enable = true;
     services.pipewire = {
         enable = true;
@@ -57,7 +57,6 @@
         pulse.enable = true;
     };
 
-    services.power-profiles-daemon.enable = true;
     services.thermald.enable = true;
     services.auto-cpufreq = {
         enable = true;
@@ -79,8 +78,6 @@
 
     hardware.opengl = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
     };
 
     users.users.tom = {
@@ -110,6 +107,10 @@
         waybar
         wofi
         mako
+        brightnessctl
+        swaybg
+        swaylock
+        swayidle
 
         # Terminal
         alacritty
