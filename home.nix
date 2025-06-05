@@ -25,6 +25,7 @@
     # Media
     mpv
     imv
+    direnv
     
     # Development
     python3
@@ -59,6 +60,7 @@
       plugins = [
         "git"
         "rust"
+        "direnv"
       ];
       theme = "wezm+";
     };
