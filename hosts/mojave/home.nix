@@ -22,7 +22,7 @@
     eza
     zoxide
     fzf
-    starship
+    age
     
     # Media
     mpv
@@ -31,8 +31,6 @@
     
     # Development
     python3
-    rustc
-    cargo
   ];
 
   # Git configuration
@@ -363,11 +361,13 @@
   # Mako notification daemon
   services.mako = {
     enable = true;
-    defaultTimeout = 5000;
-    backgroundColor = "#1e1e2e";
-    textColor = "#cdd6f4";
-    borderColor = "#89b4fa";
-    borderRadius = 10;
+    settings = {
+      default-timeout = 5000;
+      background-color = "#1e1e2e";
+      text-color = "#cdd6f4";
+      border-color = "#89b4fa";
+      border-radius = 10;
+    };
   };
 
   systemd.user.services.wallpaper = {
