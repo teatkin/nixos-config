@@ -5,6 +5,8 @@
   home.homeDirectory = "/home/tom";
   home.stateVersion = "25.05";
 
+  home.sessionVariables.EDITOR = "hx";
+
   # Packages for user
   home.packages = with pkgs; [
     helix
@@ -38,6 +40,9 @@
     enable = true;
     userName = "Tom Atkinson";
     userEmail = "me@tomatkinson.uk";
+    extraConfig = {
+      core.editor = "hx";
+    };
   };
 
   # Zsh with starship prompt

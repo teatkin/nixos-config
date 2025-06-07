@@ -18,14 +18,14 @@
                 nixos-hardware.nixosModules.lenovo-thinkpad-x390
 
                 # Main configuration
-                ./configuration.nix
+                ./hosts/mojave/configuration.nix
 
                 # Home Manager
                 home-manager.nixosModules.home-manager
                 {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.tom = import ./home.nix;
+                    home-manager.users.tom = import ./hosts/mojave/home.nix;
                 }
             ];
         };
